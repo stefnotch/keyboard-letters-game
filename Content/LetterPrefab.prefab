@@ -1,0 +1,80 @@
+{
+	"ID": "7d991e0d4aa25d10ce7b8383a9c6ba7b",
+	"TypeName": "FlaxEngine.Prefab",
+	"EngineBuild": 6169,
+	"Data": [
+	{
+		"TypeID": 11,
+		"ID": "8d19cfa240a59a99ab5dfd87f68710b4",
+		"ParentID": "00000000000000000000000000000000",
+		"Name": "RigidBody",
+		"EnableSimulation": true,
+		"EnableGravity": true,
+		"StartAwake": true
+	},
+	{
+		"TypeID": "KeyboardLettersGame.Letter",
+		"ID": "e06f3e0a435f30bd6c0402a0e7649608",
+		"ParentID": "8d19cfa240a59a99ab5dfd87f68710b4",
+		"V": {
+	"AxisConstraints": {
+		"X": 1.0,
+		"Y": 1.0,
+		"Z": 1.0
+	}
+}
+	},
+	{
+		"TypeID": 16,
+		"ID": "2548b52c40efb98843c15e9ec1230fa4",
+		"ParentID": "8d19cfa240a59a99ab5dfd87f68710b4",
+		"Name": "CapsuleCollider",
+		"Transform": {
+			"Orientation": {
+				"X": 0.0,
+				"Y": 0.0,
+				"Z": 0.7071068286895752,
+				"W": 0.7071068286895752
+			}
+		},
+		"Material": "cedf20eb47c2980b5941119386dca1a5"
+	},
+	{
+		"TypeID": 27,
+		"ID": "5391674942127438e643c7be789575f8",
+		"ParentID": "8d19cfa240a59a99ab5dfd87f68710b4",
+		"Name": "TextRender",
+		"Transform": {
+			"Orientation": {
+				"X": 0.0,
+				"Y": 1.0,
+				"Z": -0.0,
+				"W": -4.371138828673793e-8
+			}
+		},
+		"Text": "My Text",
+		"Color": {
+			"R": 0.5882353186607361,
+			"G": 0.5882353186607361,
+			"B": 1.0,
+			"A": 1.0
+		},
+		"Size": 70,
+		"Material": "406edecf4018112c0ed0acabc9236b6c",
+		"Font": "4508d98f4aa1f0bd59362b81d47e38f4",
+		"ShadowsMode": 0
+	},
+	{
+		"TypeID": 5,
+		"ID": "1b08c47741d14c1e7a3ce7823c4907b4",
+		"ParentID": "8d19cfa240a59a99ab5dfd87f68710b4",
+		"Name": "PointLight",
+		"Color": {
+			"R": 0.7843137383460999,
+			"G": 0.7843137383460999,
+			"B": 1.0,
+			"A": 1.0
+		}
+	}
+]
+}

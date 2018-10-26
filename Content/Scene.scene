@@ -1,0 +1,224 @@
+{
+	"ID": "74a68a984824b4510d12589f199ad68f",
+	"TypeName": "FlaxEngine.SceneAsset",
+	"EngineBuild": 6169,
+	"Data": [
+		{
+			"TypeID": 9,
+			"ID": "74a68a984824b4510d12589f199ad68f",
+			"ParentID": "00000000000000000000000000000000",
+			"Name": "Scene",
+			"Lightmaps": [
+				{
+					"Lightmap0": "520522344858c273e9e7d9a9131555df",
+					"Lightmap1": "bf2bef904ca9b75147d352a1b5089ace",
+					"Lightmap2": "69b94adb41aca213ce537d91d53dc89d"
+				}
+			],
+			"LightmapSettings": {}
+		},
+		{
+			"TypeID": 3,
+			"ID": "28553d634087c67c711ebd96080482aa",
+			"ParentID": "74a68a984824b4510d12589f199ad68f",
+			"Name": "Visuals"
+		},
+		{
+			"TypeID": 10,
+			"ID": "bc81376747666609b0974580a21519a1",
+			"ParentID": "28553d634087c67c711ebd96080482aa",
+			"IsActive": false,
+			"Name": "Sky",
+			"Transform": {
+				"Translation": {
+					"X": -69.65292358398438,
+					"Y": 75.30659484863281,
+					"Z": -14.423166275024414
+				}
+			},
+			"StaticFlags": 3,
+			"Sun": "deecf0894777293a4f478dadacf2a6f8",
+			"SunDiscScale": 2.0,
+			"FogSunPower": 9.0
+		},
+		{
+			"TypeID": 4,
+			"ID": "deecf0894777293a4f478dadacf2a6f8",
+			"ParentID": "28553d634087c67c711ebd96080482aa",
+			"IsActive": false,
+			"Name": "Directional Light",
+			"Transform": {
+				"Translation": {
+					"X": -1.6893305778503419,
+					"Y": 99.54244995117188,
+					"Z": 0.0
+				},
+				"Orientation": {
+					"X": 0.5176515579223633,
+					"Y": 0.0833025798201561,
+					"Z": 0.06534233689308167,
+					"W": 0.8490158915519714
+				}
+			},
+			"Color": {
+				"R": 1.0,
+				"G": 0.9606999754905701,
+				"B": 0.8050000071525574,
+				"A": 1.0
+			},
+			"MinRoughness": 0.0,
+			"ShadowsDistance": 2000.0,
+			"ShadowsFadeDistance": 50.0
+		},
+		{
+			"TypeID": 25,
+			"ID": "eb18e84d41670d6314174b89a1d5ffea",
+			"ParentID": "28553d634087c67c711ebd96080482aa",
+			"Name": "SkyLight",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": 150.0,
+					"Z": 0.0
+				}
+			},
+			"Brightness": 1.7999999523162842,
+			"CustomTexture": "1e1fb3a7447c1265b15967b480549d98"
+		},
+		{
+			"TypeID": 2,
+			"ID": "b0d72c3746caebca055e1f921ca21c7c",
+			"ParentID": "74a68a984824b4510d12589f199ad68f",
+			"Name": "Camera",
+			"StaticFlags": 0,
+			"Near": 0.10000000149011612
+		},
+		{
+			"TypeID": 3,
+			"ID": "04536e7f4d1e79dbb445ec8d3c331424",
+			"ParentID": "b0d72c3746caebca055e1f921ca21c7c",
+			"Name": "LetterSpawner",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": -400.0,
+					"Z": 1000.0
+				}
+			}
+		},
+		{
+			"TypeID": "KeyboardLettersGame.LetterSpawner",
+			"ID": "477b457b474f68cb319ddba6ecfc43d7",
+			"ParentID": "04536e7f4d1e79dbb445ec8d3c331424",
+			"V": {
+	"LetterSpawnScale": 0.8,
+	"KeyboardCenterOffset": 1.0,
+	"LetterPrefab": "7d991e0d4aa25d10ce7b8383a9c6ba7b"
+}
+		},
+		{
+			"TypeID": 1,
+			"ID": "745bce0b4fa1b04dcd196781b5afde42",
+			"ParentID": "04536e7f4d1e79dbb445ec8d3c331424",
+			"IsActive": false,
+			"Name": "Back Wall",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": 500.0,
+					"Z": 100.0
+				},
+				"Scale": {
+					"X": 10.0,
+					"Y": 20.0,
+					"Z": 1.0
+				}
+			},
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "f4ffa17f462a9f48a31f029ae6641e5f"
+					}
+				]
+			}
+		},
+		{
+			"TypeID": 14,
+			"ID": "fa015e184bef9ac3de0b3b90eea076b7",
+			"ParentID": "745bce0b4fa1b04dcd196781b5afde42",
+			"Name": "BoxCollider"
+		},
+		{
+			"TypeID": 1,
+			"ID": "a73ef63346f327e6d0fdde9449bdbd08",
+			"ParentID": "04536e7f4d1e79dbb445ec8d3c331424",
+			"Name": "Floor",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": -60.0,
+					"Z": 0.0
+				},
+				"Scale": {
+					"X": 10.0,
+					"Y": 1.0,
+					"Z": 2.0
+				}
+			},
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{}
+				]
+			}
+		},
+		{
+			"TypeID": 14,
+			"ID": "33e5a89c46fa52c86b4299a4052b0ef8",
+			"ParentID": "a73ef63346f327e6d0fdde9449bdbd08",
+			"Name": "BoxCollider"
+		},
+		{
+			"TypeID": 13,
+			"ID": "03ee8ace4ec4cfc7ec17f986af3b7f2a",
+			"ParentID": "b0d72c3746caebca055e1f921ca21c7c",
+			"Name": "PostFxVolume",
+			"StaticFlags": 0,
+			"Size": {
+				"X": 100.0,
+				"Y": 100.0,
+				"Z": 100.0
+			},
+			"IsBounded": false,
+			"Settings": {
+				"AO": {},
+				"Bloom": {
+					"Enabled": false,
+					"Intensity": 10.0,
+					"Threshold": 3.0,
+					"BlurSigma": 3.5999999046325685,
+					"Scale": 1.7999999523162842,
+					"OverrideFlags": 31
+				},
+				"ToneMapping": {},
+				"ColorGrading": {},
+				"EyeAdaptation": {
+					"Technique": 0,
+					"OverrideFlags": 1
+				},
+				"CameraArtifacts": {},
+				"LensFlares": {
+					"Intensity": 0.0,
+					"OverrideFlags": 1
+				},
+				"DepthOfField": {},
+				"MotionBlur": {
+					"Scale": 5.0,
+					"OverrideFlags": 3
+				},
+				"SSR": {}
+			}
+		}
+	]
+}
