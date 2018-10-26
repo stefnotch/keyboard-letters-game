@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using FlaxEngine;
+using FlaxEngine.Utilities;
 
 namespace KeyboardLettersGame
 {
@@ -15,7 +16,8 @@ namespace KeyboardLettersGame
 
 		private KeyboardCharacterPositions _keyPositions;
 
-		private const float FlaxProbability = 0.05f;
+		private const float FlaxProbability = 0.01f;
+		private int _flaxCounter = 3;
 		private static Random _rng = new Random();
 
 		private void Start()
@@ -25,6 +27,24 @@ namespace KeyboardLettersGame
 
 		private void Update()
 		{
+			if (Input.GetKeyUp(Keys.Spacebar))
+			{
+				foreach (var rigidBodyChild in Actor.GetChildren<RigidBody>())
+				{
+					if (rigidBodyChild.LinearVelocity.Length < 5000f)
+					{
+						Vector3 velocity = (_rng.NextVector3() * 2f - Vector3.One) * 1000f;
+						velocity.Y = Mathf.Abs(velocity.Y);
+						rigidBodyChild.LinearVelocity += velocity;
+					}
+				}
+			}
+
+			if (Input.GetKeyUp(Keys.Escape))
+			{
+				Application.Exit();
+			}
+
 			string text = Input.InputText.TrimEnd('\0');
 			if (!string.IsNullOrWhiteSpace(text))
 			{
@@ -34,9 +54,10 @@ namespace KeyboardLettersGame
 
 		private void SpawnLetter(string text)
 		{
-			if (_rng.NextDouble() < FlaxProbability)
+			if (_flaxCounter >= 0 && _rng.NextDouble() < FlaxProbability)
 			{
 				text = "FlaxEngine";
+				_flaxCounter--;
 			}
 
 			Actor spawned = PrefabManager.SpawnPrefab(LetterPrefab, Actor);
