@@ -66,6 +66,7 @@ namespace KeyboardLettersGame
 
 		/*
 		 * TODO: Better blur (brightness..)
+		 * Walls at the sides
 		 */
 	}
 }

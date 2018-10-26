@@ -54,6 +54,7 @@ namespace KeyboardLettersGame
 			TextRender = Actor.GetChild<TextRender>();
 			Collider = Actor.GetChild<CapsuleCollider>();
 			SetText(Text);
+			RigidBody.MaxDepenetrationVelocity = 1000f;
 		}
 
 		private void Update()
