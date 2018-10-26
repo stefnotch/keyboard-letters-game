@@ -52,7 +52,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Source\KeyboardCharacterPositions.cs" />
+    <Compile Include="Source\Keyboard.cs" />
     <Compile Include="Source\Letter.cs" />
     <Compile Include="Source\LetterSpawner.cs" />
     <Compile Include="Cache\AssemblyInfo.cs" />

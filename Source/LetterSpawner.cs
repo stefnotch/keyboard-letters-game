@@ -14,19 +14,31 @@ namespace KeyboardLettersGame
 
 		public float KeyboardCenterOffset = 0;
 
-		private KeyboardCharacterPositions _keyPositions;
+		private Keyboard _keyboard;
 
 		private const float FlaxProbability = 0.01f;
 		private int _flaxCounter = 3;
 		private static Random _rng = new Random();
 
+		private bool firstUpdate = true;
+		private readonly HashSet<Keys> _pressedKeys = new HashSet<Keys>();
+
 		private void Start()
 		{
-			_keyPositions = new KeyboardCharacterPositions();
+			_keyboard = new Keyboard();
 		}
 
 		private void Update()
 		{
+			if (firstUpdate)
+			{
+				var window = FlaxEngine.GUI.RootControl.GameRoot.RootWindow.Window;
+				//window.OnCharInput += Window_OnCharInput;
+				window.OnKeyDown += Window_OnKeyDown;
+				window.OnKeyUp += Window_OnKeyUp;
+				firstUpdate = false;
+			}
+
 			if (Input.GetKeyUp(Keys.Spacebar))
 			{
 				foreach (var rigidBodyChild in Actor.GetChildren<RigidBody>())
@@ -45,8 +57,32 @@ namespace KeyboardLettersGame
 				Application.Exit();
 			}
 
+			if (_pressedKeys.Count > 0)
+			{
+				SpawnLetter(_pressedKeys);
+			}
+			/*
 			string text = Input.InputText.TrimEnd('\0');
 			if (!string.IsNullOrWhiteSpace(text))
+			{
+				SpawnLetter(text);
+			}*/
+		}
+
+		private void Window_OnKeyDown(Keys key)
+		{
+			_pressedKeys.Add(key);
+		}
+
+		private void Window_OnKeyUp(Keys key)
+		{
+			_pressedKeys.Remove(key);
+		}
+
+		private void SpawnLetter(IEnumerable<Keys> keys)
+		{
+			string text = _keyboard.KeysToString(keys);
+			if (text.Length > 0)
 			{
 				SpawnLetter(text);
 			}
@@ -61,18 +97,19 @@ namespace KeyboardLettersGame
 			}
 
 			Actor spawned = PrefabManager.SpawnPrefab(LetterPrefab, Actor);
+			spawned.HideFlags = HideFlags.DontSave;
 			Letter letter = spawned.GetScript<Letter>();
 			letter.Text = text;
 
 			Vector2 averagePosition = text
 				.ToCharArray()
-				.Select(c => _keyPositions.GetCharPosition(c))
+				.Select(c => _keyboard.GetCharPosition(c))
 				.Where(c => c.X >= 0)
 				.Aggregate((posA, posB) => (posA + posB) / 2f);
 
-			averagePosition.X -= _keyPositions.KeyboardSize.X * 0.5f; // Center
+			averagePosition.X -= _keyboard.KeyboardSize.X * 0.5f; // Center
 			averagePosition.X += KeyboardCenterOffset;
-			averagePosition.Y = _keyPositions.KeyboardSize.Y - averagePosition.Y; //Flip
+			averagePosition.Y = _keyboard.KeyboardSize.Y - averagePosition.Y; //Flip
 
 			averagePosition *= 100f * LetterSpawnScale; // Scale
 
@@ -83,6 +120,9 @@ namespace KeyboardLettersGame
 		private void OnDisable()
 		{
 			Actor.DestroyChildren();
+			var window = FlaxEngine.GUI.RootControl.GameRoot.RootWindow.Window;
+			window.OnKeyDown -= Window_OnKeyDown;
+			window.OnKeyUp -= Window_OnKeyUp;
 		}
 
 		/*
