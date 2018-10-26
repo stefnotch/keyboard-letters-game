@@ -7,4 +7,6 @@
 Inspired by [https://9gag.com/gag/aer3qNQ](https://9gag.com/gag/aer3qNQ)
 
 ## Controls
-- Keyboard Keys
+- Keyboard: Letters
+- Spacebar: Letters going to space
+- Esc: Exit
