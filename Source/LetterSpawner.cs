@@ -56,7 +56,7 @@ namespace KeyboardLettersGame
 			averagePosition *= 100f * LetterSpawnScale; // Scale
 
 			spawned.LocalPosition += new Vector3(averagePosition.X, 0, 0);
-			letter.RigidBody.LinearVelocity = new Vector3(averagePosition.X * 0.5f, averagePosition.Y + 1000, 0);
+			letter.RigidBody.LinearVelocity = new Vector3(averagePosition.X * 0.5f, averagePosition.Y + 800, 0);
 		}
 
 		private void OnDisable()
