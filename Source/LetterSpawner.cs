@@ -34,8 +34,8 @@ namespace KeyboardLettersGame
 			{
 				var window = FlaxEngine.GUI.RootControl.GameRoot.RootWindow.Window;
 				//window.OnCharInput += Window_OnCharInput;
-				window.OnKeyDown += Window_OnKeyDown;
-				window.OnKeyUp += Window_OnKeyUp;
+				window.KeyDown += Window_OnKeyDown;
+				window.KeyUp += Window_OnKeyUp;
 				firstUpdate = false;
 			}
 
@@ -60,6 +60,7 @@ namespace KeyboardLettersGame
 			if (_pressedKeys.Count > 0)
 			{
 				SpawnLetter(_pressedKeys);
+				//Debug.Log(string.Join(",", _pressedKeys.AsEnumerable().Select(key => Enum.GetName(typeof(Keys), key)).ToArray()));
 			}
 			/*
 			string text = Input.InputText.TrimEnd('\0');
@@ -90,7 +91,7 @@ namespace KeyboardLettersGame
 
 		private void SpawnLetter(string text)
 		{
-			if (_flaxCounter >= 0 && _rng.NextDouble() < FlaxProbability)
+			if (_flaxCounter >= 0 && _rng.NextDouble() < FlaxProbability && false)
 			{
 				text = "FlaxEngine";
 				_flaxCounter--;
@@ -120,9 +121,9 @@ namespace KeyboardLettersGame
 		private void OnDisable()
 		{
 			Actor.DestroyChildren();
-			var window = FlaxEngine.GUI.RootControl.GameRoot.RootWindow.Window;
-			window.OnKeyDown -= Window_OnKeyDown;
-			window.OnKeyUp -= Window_OnKeyUp;
+			/*var window = FlaxEngine.GUI.RootControl.GameRoot.RootWindow.Window;
+			window.KeyDown -= Window_OnKeyDown;
+			window.KeyUp -= Window_OnKeyUp;*/
 		}
 
 		/*
