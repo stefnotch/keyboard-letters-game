@@ -43,7 +43,7 @@ namespace KeyboardLettersGame
 			}
 			_font = TextRender.Font.CreateFont(TextRender.FontSize);
 			TextRender.Text = text;
-			Debug.Log(TextRender.Text);
+			//Debug.Log(TextRender.Text);
 			Vector2 size = _font.MeasureText(text) * 0.5f;
 			Collider.Radius = Mathf.Max(size.X, 5);
 			Collider.Height = Mathf.Max(size.Y - Collider.Radius, 0);
